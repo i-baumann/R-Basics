@@ -39,6 +39,8 @@ Become very popular in last ~10 years
 
 Personally, I prefer R but both have pros and cons:
 
+--
+
 .pull-left[
 
   ## Stata
@@ -133,13 +135,13 @@ We'll be downloading two things:
 
 # R Studio
 
-<img src="~/images/r-studio.png" width="800">
+<img src="./images/r-studio.png" width="800">
 
 ---
 
 # R Studio
 
-<img src="r-studio1.png" width="800">
+<img src="./images/r-studio1.png" width="800">
 
 <span style="color:#FF0000"><b>Source window</b></span>: where we'll write R code (scripts)
 
@@ -147,7 +149,7 @@ We'll be downloading two things:
 
 # R Studio
 
-<img src="r-studio2.png" width="800">
+<img src="./images/r-studio2.png" width="800">
 
 <span style="color:#FF0000"><b>Console window</b></span>: where R outputs will show when we run code
 
@@ -155,7 +157,7 @@ We'll be downloading two things:
 
 # R Studio
 
-<img src="r-studio3.png" width="800">
+<img src="./images/r-studio3.png" width="800">
 
 <span style="color:#FF0000"><b>Environment window</b></span>: lists the datasets we're using
 
@@ -163,7 +165,7 @@ We'll be downloading two things:
 
 # R Studio
 
-<img src="r-studio4.png" width="800">
+<img src="./images/r-studio4.png" width="800">
 
 <span style="color:#FF0000"><b>Miscellaneous window</b></span>: shows plots, folders, help pages, etc.
 
@@ -175,7 +177,7 @@ Try it out!
 
 In the upper left-hand corner, click the <span style="color:green"><b>green</b></span> plus icon and pick "R Script"
 
-<img src="r-script.png" width="200">
+<img src="./images/r-script.png" width="200">
 
 --
 
@@ -198,7 +200,7 @@ Then run it! Click to the left of the code (where the number 1 is) and:
 
 Congrats, you just wrote an R script!
 
-<center><img src="hello world.png" height="450"></center>
+<center><img src="./images/hello world.png" height="450"></center>
 
 ---
 
@@ -388,7 +390,7 @@ One of the most common things you'll do with data: think about it first!
 
 There are many types of joins in R, mostly in the Tidyverse package **dplyr**:
 
-<center><img src="joins.png", width="400px"></center>
+<center><img src="./images/joins.png", width="400px"></center>
 
 --
 
@@ -451,7 +453,7 @@ Go look at `c`: it should have an airline name variable now!
 
 --
 
-<center><img src="airline join.png" width="500px"></center>
+<center><img src="./images/airline join.png" width="500px"></center>
 
 ---
 
@@ -471,7 +473,7 @@ rm(a, b, c)
 
 Or use the &#129529; icon to clean out everything
 
-<center><img src="broom.png" width="450px"></center>
+<center><img src="./images/broom.png" width="450px"></center>
 
 ---
 
@@ -483,7 +485,7 @@ class: inverse
 
 Let's learn some more stuff with Star Wars
 
-Download starwars.csv from my Github page
+Download `starwars.csv` from my [Github page](https://raw.githubusercontent.com/i-baumann/R-Basics/master/starwars.csv?raw=true)
 
 ---
 
@@ -539,7 +541,7 @@ Use `browse` to find `starwars.csv` (**readr** will open in the wd you set)
 
 --
 
-<center><img src="readr.png" width="500px"></center>
+<center><img src="./images/readr.png" width="500px"></center>
 
 ---
 
@@ -547,7 +549,7 @@ class: inverse
 
 # Star Wars
 
-<center><img src="readr.png" width="600px"></center>
+<center><img src="./images/readr.png" width="600px"></center>
 
 --
 

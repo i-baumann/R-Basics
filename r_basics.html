@@ -59,6 +59,8 @@ Become very popular in last ~10 years
 
 Personally, I prefer R but both have pros and cons:
 
+--
+
 .pull-left[
 
   ## Stata
@@ -153,13 +155,13 @@ We'll be downloading two things:
 
 # R Studio
 
-&lt;img src="~/images/r-studio.png" width="800"&gt;
+&lt;img src="./images/r-studio.png" width="800"&gt;
 
 ---
 
 # R Studio
 
-&lt;img src="r-studio1.png" width="800"&gt;
+&lt;img src="./images/r-studio1.png" width="800"&gt;
 
 &lt;span style="color:#FF0000"&gt;&lt;b&gt;Source window&lt;/b&gt;&lt;/span&gt;: where we'll write R code (scripts)
 
@@ -167,7 +169,7 @@ We'll be downloading two things:
 
 # R Studio
 
-&lt;img src="r-studio2.png" width="800"&gt;
+&lt;img src="./images/r-studio2.png" width="800"&gt;
 
 &lt;span style="color:#FF0000"&gt;&lt;b&gt;Console window&lt;/b&gt;&lt;/span&gt;: where R outputs will show when we run code
 
@@ -175,7 +177,7 @@ We'll be downloading two things:
 
 # R Studio
 
-&lt;img src="r-studio3.png" width="800"&gt;
+&lt;img src="./images/r-studio3.png" width="800"&gt;
 
 &lt;span style="color:#FF0000"&gt;&lt;b&gt;Environment window&lt;/b&gt;&lt;/span&gt;: lists the datasets we're using
 
@@ -183,7 +185,7 @@ We'll be downloading two things:
 
 # R Studio
 
-&lt;img src="r-studio4.png" width="800"&gt;
+&lt;img src="./images/r-studio4.png" width="800"&gt;
 
 &lt;span style="color:#FF0000"&gt;&lt;b&gt;Miscellaneous window&lt;/b&gt;&lt;/span&gt;: shows plots, folders, help pages, etc.
 
@@ -195,7 +197,7 @@ Try it out!
 
 In the upper left-hand corner, click the &lt;span style="color:green"&gt;&lt;b&gt;green&lt;/b&gt;&lt;/span&gt; plus icon and pick "R Script"
 
-&lt;img src="r-script.png" width="200"&gt;
+&lt;img src="./images/r-script.png" width="200"&gt;
 
 --
 
@@ -219,7 +221,7 @@ Then run it! Click to the left of the code (where the number 1 is) and:
 
 Congrats, you just wrote an R script!
 
-&lt;center&gt;&lt;img src="hello world.png" height="450"&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="./images/hello world.png" height="450"&gt;&lt;/center&gt;
 
 ---
 
@@ -417,7 +419,7 @@ One of the most common things you'll do with data: think about it first!
 
 There are many types of joins in R, mostly in the Tidyverse package **dplyr**:
 
-&lt;center&gt;&lt;img src="joins.png", width="400px"&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="./images/joins.png", width="400px"&gt;&lt;/center&gt;
 
 --
 
@@ -482,7 +484,7 @@ Go look at `c`: it should have an airline name variable now!
 
 --
 
-&lt;center&gt;&lt;img src="airline join.png" width="500px"&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="./images/airline join.png" width="500px"&gt;&lt;/center&gt;
 
 ---
 
@@ -503,7 +505,7 @@ rm(a, b, c)
 
 Or use the &amp;#129529; icon to clean out everything
 
-&lt;center&gt;&lt;img src="broom.png" width="450px"&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="./images/broom.png" width="450px"&gt;&lt;/center&gt;
 
 ---
 
@@ -515,7 +517,7 @@ class: inverse
 
 Let's learn some more stuff with Star Wars
 
-Download starwars.csv from my Github page
+Download `starwars.csv` from my [Github page](https://raw.githubusercontent.com/i-baumann/R-Basics/master/starwars.csv?raw=true)
 
 ---
 
@@ -572,7 +574,7 @@ Use `browse` to find `starwars.csv` (**readr** will open in the wd you set)
 
 --
 
-&lt;center&gt;&lt;img src="readr.png" width="500px"&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="./images/readr.png" width="500px"&gt;&lt;/center&gt;
 
 ---
 
@@ -580,7 +582,7 @@ class: inverse
 
 # Star Wars
 
-&lt;center&gt;&lt;img src="readr.png" width="600px"&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="./images/readr.png" width="600px"&gt;&lt;/center&gt;
 
 --
 
@@ -1039,8 +1041,8 @@ library(leaflet)
 leaflet() %&gt;% addTiles() %&gt;% setView(-93.65, 42.0285, zoom = 17)
 ```
 
-<div id="htmlwidget-372a03ff584e27af9e67" style="width:100%;height:432px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-372a03ff584e27af9e67">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}],"setView":[[42.0285,-93.65],17,[]]},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-b7c643852b963d7578a8" style="width:100%;height:432px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b7c643852b963d7578a8">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}],"setView":[[42.0285,-93.65],17,[]]},"evals":[],"jsHooks":[]}</script>
 
 ---
 
@@ -1052,8 +1054,8 @@ DT::datatable(
 )
 ```
 
-<div id="htmlwidget-6648440c530442489d18" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-6648440c530442489d18">{"x":{"filter":"none","fillContainer":false,"data":[["1","2","3","4","5","6","7","8","9","10"],[5.1,4.9,4.7,4.6,5,5.4,4.6,5,4.4,4.9],[3.5,3,3.2,3.1,3.6,3.9,3.4,3.4,2.9,3.1],[1.4,1.4,1.3,1.5,1.4,1.7,1.4,1.5,1.4,1.5],[0.2,0.2,0.2,0.2,0.2,0.4,0.3,0.2,0.2,0.1],["setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Sepal.Length<\/th>\n      <th>Sepal.Width<\/th>\n      <th>Petal.Length<\/th>\n      <th>Petal.Width<\/th>\n      <th>Species<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":8,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[8,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-2a05242f4ae89848b245" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2a05242f4ae89848b245">{"x":{"filter":"none","fillContainer":false,"data":[["1","2","3","4","5","6","7","8","9","10"],[5.1,4.9,4.7,4.6,5,5.4,4.6,5,4.4,4.9],[3.5,3,3.2,3.1,3.6,3.9,3.4,3.4,2.9,3.1],[1.4,1.4,1.3,1.5,1.4,1.7,1.4,1.5,1.4,1.5],[0.2,0.2,0.2,0.2,0.2,0.4,0.3,0.2,0.2,0.1],["setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Sepal.Length<\/th>\n      <th>Sepal.Width<\/th>\n      <th>Petal.Length<\/th>\n      <th>Petal.Width<\/th>\n      <th>Species<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":8,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[8,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 
 ---
 
