@@ -48,7 +48,7 @@ Personally, I prefer R but both have pros and cons:
   - Ready out-of-the-box
   - Pay-to-play: performance limited by pay tiers
   - Economists, sociologists, some epidemiologists (changing)
-  - Better table functions
+  - Better table creation functions
   - Stata is much friendlier for econometrics
 
 ]
@@ -487,6 +487,42 @@ Let's learn some more stuff with Star Wars
 
 Download `starwars.csv` from my [Github page](https://raw.githubusercontent.com/i-baumann/R-Basics/master/starwars.csv?raw=true)
 
+--
+
+Open a new R script in R Studio
+
+---
+
+class: inverse
+
+# Star Wars
+
+## Scripting
+
+Scripting is all about reproducibility
+
+--
+
+A .do file in Stata is a sequence of functions:
+--
+ so is a .R file in R!
+ 
+--
+
+Use the scripting window for scripting: avoid coding in the console
+ 
+--
+
+First, load packages:
+
+```{r eval=FALSE, tidy=FALSE}
+library(tidyverse)
+```
+
+--
+
+Even if it's loaded in R now it might not be the next time!
+
 ---
 
 class: inverse
@@ -557,7 +593,7 @@ class: inverse
 
 --
 
-The code box in the right bottom corner: you can edit if you need to!
+The code box in the right bottom corner: you can copy or edit if you need to!
 
 --
 
@@ -724,6 +760,195 @@ model <- lm(mass ~ height + homeworld + species, data = starwars)
 ```
 
 ---
+
+class: inverse
+
+# Star Wars
+
+Let's view the results!
+
+--
+
+```{r eval=FALSE, tidy=FALSE}
+model
+```
+
+--
+
+Not very useful...
+--
+ let's use `summary()`
+  
+```{r eval=FALSE, tidy=FALSE}
+summary(model)
+```
+
+--
+
+Much more useful!
+
+--
+
+Questions:
+
+- What's significant?
+
+--
+
+- Why is only one planet very significant?
+
+--
+
+- Why are most of the species coefficients `NA`?
+
+---
+
+class: inverse
+
+# Star Wars
+
+## Data visualization
+
+--
+
+Base R has some _basic_ graphic tools
+
+--
+
+Mostly good for quick and dirty data visualization
+
+--
+
+`plot` and `hist` are good for basic scatterplots and histograms
+
+--
+
+### Scatterplots in base R
+
+```{r eval=FALSE, tidy=FALSE}
+plot("first variable","second variable")
+```
+
+--
+
+Let's look at `mass` and `height` in a scatterplot:
+
+```{r eval=FALSE, tidy=FALSE}
+plot(starwars$mass,starwars$height)
+```
+
+---
+
+class: inverse
+
+# Star Wars
+
+## Data visualization
+
+### Histograms in base R
+
+Histograms are frequency plots: they tell us how many times a value appears
+
+--
+
+```{r eval=FALSE, tidy=FALSE}
+hist("variable",breaks = "how many bars we want")
+```
+
+--
+
+Let's make a histogram of Star Wars characters' weights:
+
+```{r eval=FALSE, tidy=FALSE}
+hist(starwars$mass)
+```
+
+--
+
+More detailed:
+
+```{r eval=FALSE, tidy=FALSE}
+hist(starwars$mass, breaks = 100)
+```
+
+---
+
+class: inverse
+
+# Star Wars
+
+## Data visualization
+
+<br/>
+<center><img src="https://thumbs.gfycat.com/KaleidoscopicSecondaryGazelle-small.gif", width = 700></center>
+
+---
+
+class: inverse
+
+# Star Wars
+
+## Data visualization
+
+.pull-left[
+
+Base R plots:
+
+<img src="./images/yoad.png", width = 400>
+
+]
+
+--
+
+.pull-right[
+
+ggplot2 plots:
+<br/><br/><br/><br/>
+<img src="https://vignette.wikia.nocookie.net/starwars/images/9/98/Yoda1280.jpg/revision/latest?cb=20070224213010", width = 400>
+
+]
+
+---
+
+class: inverse
+
+# Star Wars
+
+## Data visualization: ggplot2
+
+<center><img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/ggplot2.png" height="150"></center>
+
+ggplot2 is _another_ Tidyverse package
+
+--
+
+Highly customizable, but tough to get used to
+
+--
+
+Can take a lot of coding: many, many functions for adding layers, editing labels, etc.
+
+--
+
+Easily pass data to ggplot2 functions
+
+---
+
+class: inverse
+
+# Star Wars
+
+## Data visualization: ggplot2
+
+The idea behind ggplot2 is you build graphics by:
+
+--
+
+
+
+---
+
+
 
 Install the **xaringan** package from [Github](https://github.com/yihui/xaringan):
 

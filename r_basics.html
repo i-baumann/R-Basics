@@ -29,7 +29,7 @@ class: center, middle, inverse, title-slide
 
 # R Basics
 ### Isaac Baumann
-### 7/30/20 (updated: 2020-08-01)
+### 7/30/20 (updated: 2020-08-04)
 
 ---
 
@@ -68,7 +68,7 @@ Personally, I prefer R but both have pros and cons:
   - Ready out-of-the-box
   - Pay-to-play: performance limited by pay tiers
   - Economists, sociologists, some epidemiologists (changing)
-  - Better table functions
+  - Better table creation functions
   - Stata is much friendlier for econometrics
 
 ]
@@ -519,6 +519,43 @@ Let's learn some more stuff with Star Wars
 
 Download `starwars.csv` from my [Github page](https://raw.githubusercontent.com/i-baumann/R-Basics/master/starwars.csv?raw=true)
 
+--
+
+Open a new R script in R Studio
+
+---
+
+class: inverse
+
+# Star Wars
+
+## Scripting
+
+Scripting is all about reproducibility
+
+--
+
+A .do file in Stata is a sequence of functions:
+--
+ so is a .R file in R!
+ 
+--
+
+Use the scripting window for scripting: avoid coding in the console
+ 
+--
+
+First, load packages:
+
+
+```r
+library(tidyverse)
+```
+
+--
+
+Even if it's loaded in R now it might not be the next time!
+
 ---
 
 class: inverse
@@ -590,7 +627,7 @@ class: inverse
 
 --
 
-The code box in the right bottom corner: you can edit if you need to!
+The code box in the right bottom corner: you can copy or edit if you need to!
 
 --
 
@@ -765,6 +802,202 @@ model &lt;- lm(mass ~ height + homeworld + species, data = starwars)
 ```
 
 ---
+
+class: inverse
+
+# Star Wars
+
+Let's view the results!
+
+--
+
+
+```r
+model
+```
+
+--
+
+Not very useful...
+--
+ let's use `summary()`
+  
+
+```r
+summary(model)
+```
+
+--
+
+Much more useful!
+
+--
+
+Questions:
+
+- What's significant?
+
+--
+
+- Why is only one planet very significant?
+
+--
+
+- Why are most of the species coefficients `NA`?
+
+---
+
+class: inverse
+
+# Star Wars
+
+## Data visualization
+
+--
+
+Base R has some _basic_ graphic tools
+
+--
+
+Mostly good for quick and dirty data visualization
+
+--
+
+`plot` and `hist` are good for basic scatterplots and histograms
+
+--
+
+### Scatterplots in base R
+
+
+```r
+plot("first variable","second variable")
+```
+
+--
+
+Let's look at `mass` and `height` in a scatterplot:
+
+
+```r
+plot(starwars$mass,starwars$height)
+```
+
+---
+
+class: inverse
+
+# Star Wars
+
+## Data visualization
+
+### Histograms in base R
+
+Histograms are frequency plots: they tell us how many times a value appears
+
+--
+
+
+```r
+hist("variable",breaks = "how many bars we want")
+```
+
+--
+
+Let's make a histogram of Star Wars characters' weights:
+
+
+```r
+hist(starwars$mass)
+```
+
+--
+
+More detailed:
+
+
+```r
+hist(starwars$mass, breaks = 100)
+```
+
+---
+
+class: inverse
+
+# Star Wars
+
+## Data visualization
+
+&lt;br/&gt;
+&lt;center&gt;&lt;img src="https://thumbs.gfycat.com/KaleidoscopicSecondaryGazelle-small.gif", width = 700&gt;&lt;/center&gt;
+
+---
+
+class: inverse
+
+# Star Wars
+
+## Data visualization
+
+.pull-left[
+
+Base R plots:
+
+&lt;img src="./images/yoad.png", width = 400&gt;
+
+]
+
+--
+
+.pull-right[
+
+ggplot2 plots:
+&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;
+&lt;img src="https://vignette.wikia.nocookie.net/starwars/images/9/98/Yoda1280.jpg/revision/latest?cb=20070224213010", width = 400&gt;
+
+]
+
+---
+
+class: inverse
+
+# Star Wars
+
+## Data visualization: ggplot2
+
+&lt;center&gt;&lt;img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/ggplot2.png" height="150"&gt;&lt;/center&gt;
+
+ggplot2 is _another_ Tidyverse package
+
+--
+
+Highly customizable, but tough to get used to
+
+--
+
+Can take a lot of coding: many, many functions for adding layers, editing labels, etc.
+
+--
+
+Easily pass data to ggplot2 functions
+
+---
+
+class: inverse
+
+# Star Wars
+
+## Data visualization: ggplot2
+
+The idea behind ggplot2 is you build graphics by:
+
+--
+
+
+
+---
+
+
 
 Install the **xaringan** package from [Github](https://github.com/yihui/xaringan):
 
@@ -1041,8 +1274,8 @@ library(leaflet)
 leaflet() %&gt;% addTiles() %&gt;% setView(-93.65, 42.0285, zoom = 17)
 ```
 
-<div id="htmlwidget-b7c643852b963d7578a8" style="width:100%;height:432px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-b7c643852b963d7578a8">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}],"setView":[[42.0285,-93.65],17,[]]},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-7c5b2586082af3751dcf" style="width:100%;height:432px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7c5b2586082af3751dcf">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}],"setView":[[42.0285,-93.65],17,[]]},"evals":[],"jsHooks":[]}</script>
 
 ---
 
@@ -1054,8 +1287,8 @@ DT::datatable(
 )
 ```
 
-<div id="htmlwidget-2a05242f4ae89848b245" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-2a05242f4ae89848b245">{"x":{"filter":"none","fillContainer":false,"data":[["1","2","3","4","5","6","7","8","9","10"],[5.1,4.9,4.7,4.6,5,5.4,4.6,5,4.4,4.9],[3.5,3,3.2,3.1,3.6,3.9,3.4,3.4,2.9,3.1],[1.4,1.4,1.3,1.5,1.4,1.7,1.4,1.5,1.4,1.5],[0.2,0.2,0.2,0.2,0.2,0.4,0.3,0.2,0.2,0.1],["setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Sepal.Length<\/th>\n      <th>Sepal.Width<\/th>\n      <th>Petal.Length<\/th>\n      <th>Petal.Width<\/th>\n      <th>Species<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":8,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[8,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-9030ddbb2d0194329bc4" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9030ddbb2d0194329bc4">{"x":{"filter":"none","fillContainer":false,"data":[["1","2","3","4","5","6","7","8","9","10"],[5.1,4.9,4.7,4.6,5,5.4,4.6,5,4.4,4.9],[3.5,3,3.2,3.1,3.6,3.9,3.4,3.4,2.9,3.1],[1.4,1.4,1.3,1.5,1.4,1.7,1.4,1.5,1.4,1.5],[0.2,0.2,0.2,0.2,0.2,0.4,0.3,0.2,0.2,0.1],["setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Sepal.Length<\/th>\n      <th>Sepal.Width<\/th>\n      <th>Petal.Length<\/th>\n      <th>Petal.Width<\/th>\n      <th>Species<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":8,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[8,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 
 ---
 
