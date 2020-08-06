@@ -29,7 +29,7 @@ class: center, middle, inverse, title-slide
 
 # R Basics
 ### Isaac Baumann
-### 7/30/20 (updated: 2020-08-04)
+### 7/30/20 (updated: 2020-08-06)
 
 ---
 
@@ -993,9 +993,370 @@ The idea behind ggplot2 is you build graphics by:
 
 --
 
+- Passing data to ggplot
 
+--
+
+- Adding "aesthetic" commands: tell ggplot what to do with the data
+
+--
+
+- Adding other ggplot functions to customize
+
+--
+
+We could spend a whole presentation just on ggplot: let's do some simple plots
 
 ---
+
+class: inverse
+
+# Star Wars
+
+## Data visualization: ggplot2
+
+Let's recreate our scatterplot in ggplot2:
+
+--
+
+
+```r
+ggplot(data = starwars, aes(x = mass, y = height)) + geom_point()
+```
+
+--
+
+`ggplot` preps the data - we're telling ggplot:
+
+--
+
+- Use `starwars` as our dataset
+
+- `mass` is the x axis variable
+
+- `height` is the y axis variable
+
+--
+
+geom functions tell ggplot what kind of graph we want
+
+--
+
+- `geom_point` tells ggplot we want a scatterplot
+
+--
+
+Doesn't look very different - let's get fancy
+
+---
+
+class: inverse
+
+# Star Wars
+
+## Data visualization: ggplot2
+
+How about adding a title?
+
+
+```r
+ggplot(data = starwars, aes(x = mass, y = height)) + geom_point() +
+  labs(title = "Star Wars Weights and Heights")
+```
+
+--
+
+Let's change the dots to stars:
+
+
+```r
+ggplot(data = starwars, aes(x = mass, y = height)) + 
+  geom_point(shape = 8) +
+  labs(title = "Star Wars Weights and Heights")
+```
+
+--
+
+Make them smaller and change the color:
+
+
+```r
+ggplot(data = starwars, aes(x = mass, y = height)) + 
+  geom_point(shape = 8, size = .75, color = "red") +
+  labs(title = "Star Wars Weights and Heights")
+```
+
+---
+
+class: inverse
+
+# Star Wars
+
+## Data visualization: ggplot2
+
+Get rid of Jabba the Hutt and plot a line of best fit:
+
+
+```r
+ggplot(data = filter(starwars, mass &lt; 500), aes(x = mass, y = height)) + 
+  geom_point(shape = 8, size = .75, color = "red") +
+  labs(title = "Star Wars Weights and Heights") +
+  geom_smooth(method = "lm")
+```
+
+--
+
+Go the the Dark Side!
+
+
+```r
+ggplot(data = filter(starwars, mass &lt; 500), aes(x = mass, y = height)) + 
+  geom_point(shape = 8, size = .75, color = "red") +
+  labs(title = "Star Wars Weights and Heights") +
+  geom_smooth(method = "lm") +
+  theme_dark()
+```
+
+---
+
+class: inverse
+
+# Star Wars
+
+## Data visualization: ggplot2
+
+Histograms are also easy: just change the geom!
+
+--
+
+Histograms are a frequency of one variable: let's do mass (height won't be the y axis)
+
+--
+
+
+```r
+ggplot(data = starwars, aes(x = mass)) + 
+  geom_histogram()
+```
+
+--
+
+Increase the number of bins:
+
+
+```r
+ggplot(data = starwars, aes(x = mass)) + 
+  geom_histogram(bins = 100)
+```
+
+---
+
+class: inverse
+
+# Star Wars
+
+## Data visualization: ggplot2
+
+Can we group the data?
+--
+ *Absolutely!*
+ 
+--
+
+Let's look at mass by gender:
+
+
+```r
+ggplot(data = starwars, aes(x = mass, color = gender)) + 
+  geom_histogram(bins = 100)
+```
+
+--
+
+Fill in the bars and "dodge" them:
+
+
+```r
+ggplot(data = starwars, aes(x = mass, color = gender, fill = gender)) + 
+  geom_histogram(bins = 100, position = "dodge2")
+```
+
+---
+
+class: inverse
+
+# Star Wars
+
+## Data visualization: ggplot2
+
+ggplot is almost _infinitely_ customizable
+
+--
+
+You can make [maps](https://ggplot2.tidyverse.org/reference/map_data.html)
+
+--
+
+You can even [draw BB-8](https://gist.github.com/pvictor/2f1b498b90fab5427b1b0103d51e509a)!
+
+&lt;center&gt;&lt;img src = "https://cloud.githubusercontent.com/assets/4415580/14786276/7367d6e4-0afe-11e6-998d-8956dc034916.png", height = 250&gt;&lt;/center&gt;
+
+---
+
+class: inverse
+
+# Star Wars
+
+## Finishing up: saving data
+
+We're done with our Star Wars project: what now?
+
+--
+
+R's data files have an `.rda` extension - .rda files:
+
+--
+
+- are for R what .dta files are for Stata
+
+--
+
+- auto-load into R (no need for `readr` or other packages)
+
+--
+
+- are automatically compressed, saving space
+
+--
+
+Let's save `starwars`!
+
+--
+
+
+```r
+save(starwars, file = "starwars.rda")
+```
+
+--
+
+Automatically saves to wd: if you want it elsewhere, give a new file path:
+
+
+```r
+save(starwars, file = "~/Desktop/starwars.rda")
+```
+
+---
+
+class: inverse
+
+# Star Wars
+
+## Finishing up: saving code
+
+We saved our data: now let's save our R script
+
+--
+
+R scripts save as `.R` files
+
+--
+
+Like Stata's .do files
+
+--
+
+Save your script: `File -&gt; Save As`
+
+--
+
+Or click the &amp;#128190; icon at the top of the scripting window
+
+--
+
+_If you code carefully_, your script will run all the way through on one click with no errors
+
+--
+
+_Think ahead while scripting_: don't take shortcuts, take the time to do it right
+
+---
+
+# R-esources
+
+--
+
+## R basics
+
+- [R Bloggers](https://www.r-bloggers.com/): tutorials and subject-specific help
+
+- [STHDA](http://www.sthda.com/english/): more tutorials and help pages
+
+- [One R Tip a Day](https://twitter.com/RLangTip?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor): Twitter account with daily R tips
+
+- Lots more: R has a large, very helpful online community
+--
+ (Stata's community is smaller and kinda cranky)
+
+--
+
+## Tidyverse
+
+- [Tidyverse package sites](https://www.tidyverse.org/packages/): info about Tidyverse packages and functions
+
+- [R for Data Science](https://r4ds.had.co.nz/) by Hadley Wickham: great (free!) beginner book on R, doing statistics in R, and tidy data
+
+---
+
+# R-esources
+
+## RStudio
+
+- [RStudio Community](https://community.rstudio.com/): RStudio's official community page (forums, questions, etc.)
+
+- [RStudio Blog](https://blog.rstudio.com/): RStudio's official blog
+
+- [RStudio cheatsheets](https://rstudio.com/resources/cheatsheets/): quick guides to using RStudio and many Tidyverse packages
+
+--
+
+## Using R for econometrics
+
+- [Econometrics with R](https://www.econometrics-with-r.org/): textbook for metrics in R
+
+- [Wooldridge package](https://cran.r-project.org/web/packages/wooldridge/index.html): datasets from Wooldridge's famous metrics book (useful for 640 and 641 homework)
+
+---
+
+# Cool stuff
+
+- Creating a [map of Middle Earth](https://twitter.com/andrewheiss/status/1291380121069330432) in ggplot2
+
+- [Tidy Tuesday](https://www.tidytuesday.com/): small weekly R projects (and a podcast!)
+
+- Make [slide decks](https://bookdown.org/yihui/rmarkdown/xaringan.html) in RStudio (like this one!)
+
+- Build web apps in R with [Shiny](https://shiny.rstudio.com/gallery/)
+
+- UC Irvine's [machine learning datasets](http://archive.ics.uci.edu/ml/datasets.php)
+
+- Use the [tidycensus package](https://cran.r-project.org/web/packages/tidycensus/tidycensus.pdf) to download tidy Census data from the Census API
+
+- [R Graph gallery](https://www.r-graph-gallery.com/): cool graphs people have made with ggplot
+
+- Output R regression results tables to [LaTeX](https://cran.r-project.org/web/packages/stargazer/vignettes/stargazer.pdf) and [Word](https://sejdemyr.github.io/r-tutorials/basics/tables-in-r/)
+
+---
+
+class: center, middle
+
+&lt;a href="http://github.com/ismayc"&gt;&lt;i class="fa fa-github fa-fw"&gt;&lt;/i&gt;&amp;nbsp; ismayc&lt;/a&gt;&lt;br&gt;
+
+---
+
+
+
 
 
 
@@ -1274,8 +1635,8 @@ library(leaflet)
 leaflet() %&gt;% addTiles() %&gt;% setView(-93.65, 42.0285, zoom = 17)
 ```
 
-<div id="htmlwidget-7c5b2586082af3751dcf" style="width:100%;height:432px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-7c5b2586082af3751dcf">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}],"setView":[[42.0285,-93.65],17,[]]},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-d2a277e726c33a3ca6a5" style="width:100%;height:432px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d2a277e726c33a3ca6a5">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}],"setView":[[42.0285,-93.65],17,[]]},"evals":[],"jsHooks":[]}</script>
 
 ---
 
@@ -1287,8 +1648,8 @@ DT::datatable(
 )
 ```
 
-<div id="htmlwidget-9030ddbb2d0194329bc4" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-9030ddbb2d0194329bc4">{"x":{"filter":"none","fillContainer":false,"data":[["1","2","3","4","5","6","7","8","9","10"],[5.1,4.9,4.7,4.6,5,5.4,4.6,5,4.4,4.9],[3.5,3,3.2,3.1,3.6,3.9,3.4,3.4,2.9,3.1],[1.4,1.4,1.3,1.5,1.4,1.7,1.4,1.5,1.4,1.5],[0.2,0.2,0.2,0.2,0.2,0.4,0.3,0.2,0.2,0.1],["setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Sepal.Length<\/th>\n      <th>Sepal.Width<\/th>\n      <th>Petal.Length<\/th>\n      <th>Petal.Width<\/th>\n      <th>Species<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":8,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[8,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-19a4059476b991f3cf3b" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-19a4059476b991f3cf3b">{"x":{"filter":"none","fillContainer":false,"data":[["1","2","3","4","5","6","7","8","9","10"],[5.1,4.9,4.7,4.6,5,5.4,4.6,5,4.4,4.9],[3.5,3,3.2,3.1,3.6,3.9,3.4,3.4,2.9,3.1],[1.4,1.4,1.3,1.5,1.4,1.7,1.4,1.5,1.4,1.5],[0.2,0.2,0.2,0.2,0.2,0.4,0.3,0.2,0.2,0.1],["setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Sepal.Length<\/th>\n      <th>Sepal.Width<\/th>\n      <th>Petal.Length<\/th>\n      <th>Petal.Width<\/th>\n      <th>Species<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":8,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[8,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 
 ---
 

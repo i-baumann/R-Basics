@@ -944,9 +944,358 @@ The idea behind ggplot2 is you build graphics by:
 
 --
 
+- Passing data to ggplot
 
+--
+
+- Adding "aesthetic" commands: tell ggplot what to do with the data
+
+--
+
+- Adding other ggplot functions to customize
+
+--
+
+We could spend a whole presentation just on ggplot: let's do some simple plots
 
 ---
+
+class: inverse
+
+# Star Wars
+
+## Data visualization: ggplot2
+
+Let's recreate our scatterplot in ggplot2:
+
+--
+
+```{r eval=FALSE, tidy=FALSE}
+ggplot(data = starwars, aes(x = mass, y = height)) + geom_point()
+```
+
+--
+
+`ggplot` preps the data - we're telling ggplot:
+
+--
+
+- Use `starwars` as our dataset
+
+- `mass` is the x axis variable
+
+- `height` is the y axis variable
+
+--
+
+geom functions tell ggplot what kind of graph we want
+
+--
+
+- `geom_point` tells ggplot we want a scatterplot
+
+--
+
+Doesn't look very different - let's get fancy
+
+---
+
+class: inverse
+
+# Star Wars
+
+## Data visualization: ggplot2
+
+How about adding a title?
+
+```{r eval=FALSE, tidy=FALSE}
+ggplot(data = starwars, aes(x = mass, y = height)) + geom_point() +
+  labs(title = "Star Wars Weights and Heights")
+```
+
+--
+
+Let's change the dots to stars:
+
+```{r eval=FALSE, tidy=FALSE}
+ggplot(data = starwars, aes(x = mass, y = height)) + 
+  geom_point(shape = 8) +
+  labs(title = "Star Wars Weights and Heights")
+```
+
+--
+
+Make them smaller and change the color:
+
+```{r eval=FALSE, tidy=FALSE}
+ggplot(data = starwars, aes(x = mass, y = height)) + 
+  geom_point(shape = 8, size = .75, color = "red") +
+  labs(title = "Star Wars Weights and Heights")
+```
+
+---
+
+class: inverse
+
+# Star Wars
+
+## Data visualization: ggplot2
+
+Get rid of Jabba the Hutt and plot a line of best fit:
+
+```{r eval=FALSE, tidy=FALSE}
+ggplot(data = filter(starwars, mass < 500), aes(x = mass, y = height)) + 
+  geom_point(shape = 8, size = .75, color = "red") +
+  labs(title = "Star Wars Weights and Heights") +
+  geom_smooth(method = "lm")
+```
+
+--
+
+Go the the Dark Side!
+
+```{r eval=FALSE, tidy=FALSE}
+ggplot(data = filter(starwars, mass < 500), aes(x = mass, y = height)) + 
+  geom_point(shape = 8, size = .75, color = "red") +
+  labs(title = "Star Wars Weights and Heights") +
+  geom_smooth(method = "lm") +
+  theme_dark()
+```
+
+---
+
+class: inverse
+
+# Star Wars
+
+## Data visualization: ggplot2
+
+Histograms are also easy: just change the geom!
+
+--
+
+Histograms are a frequency of one variable: let's do mass (height won't be the y axis)
+
+--
+
+```{r eval=FALSE, tidy=FALSE}
+ggplot(data = starwars, aes(x = mass)) + 
+  geom_histogram()
+```
+
+--
+
+Increase the number of bins:
+
+```{r eval=FALSE, tidy=FALSE}
+ggplot(data = starwars, aes(x = mass)) + 
+  geom_histogram(bins = 100)
+```
+
+---
+
+class: inverse
+
+# Star Wars
+
+## Data visualization: ggplot2
+
+Can we group the data?
+--
+ *Absolutely!*
+ 
+--
+
+Let's look at mass by gender:
+
+```{r eval=FALSE, tidy=FALSE}
+ggplot(data = starwars, aes(x = mass, color = gender)) + 
+  geom_histogram(bins = 100)
+```
+
+--
+
+Fill in the bars and "dodge" them:
+
+```{r eval=FALSE, tidy=FALSE}
+ggplot(data = starwars, aes(x = mass, color = gender, fill = gender)) + 
+  geom_histogram(bins = 100, position = "dodge2")
+```
+
+---
+
+class: inverse
+
+# Star Wars
+
+## Data visualization: ggplot2
+
+ggplot is almost _infinitely_ customizable
+
+--
+
+You can make [maps](https://ggplot2.tidyverse.org/reference/map_data.html)
+
+--
+
+You can even [draw BB-8](https://gist.github.com/pvictor/2f1b498b90fab5427b1b0103d51e509a)!
+
+<center><img src = "https://cloud.githubusercontent.com/assets/4415580/14786276/7367d6e4-0afe-11e6-998d-8956dc034916.png", height = 250></center>
+
+---
+
+class: inverse
+
+# Star Wars
+
+## Finishing up: saving data
+
+We're done with our Star Wars project: what now?
+
+--
+
+R's data files have an `.rda` extension - .rda files:
+
+--
+
+- are for R what .dta files are for Stata
+
+--
+
+- auto-load into R (no need for `readr` or other packages)
+
+--
+
+- are automatically compressed, saving space
+
+--
+
+Let's save `starwars`!
+
+--
+
+```{r eval=FALSE, tidy=FALSE}
+save(starwars, file = "starwars.rda")
+```
+
+--
+
+Automatically saves to wd: if you want it elsewhere, give a new file path:
+
+```{r eval=FALSE, tidy=FALSE}
+save(starwars, file = "~/Desktop/starwars.rda")
+```
+
+---
+
+class: inverse
+
+# Star Wars
+
+## Finishing up: saving code
+
+We saved our data: now let's save our R script
+
+--
+
+R scripts save as `.R` files
+
+--
+
+Like Stata's .do files
+
+--
+
+Save your script: `File -> Save As`
+
+--
+
+Or click the &#128190; icon at the top of the scripting window
+
+--
+
+_If you code carefully_, your script will run all the way through on one click with no errors
+
+--
+
+_Think ahead while scripting_: don't take shortcuts, take the time to do it right
+
+---
+
+# R-esources
+
+--
+
+## R basics
+
+- [R Bloggers](https://www.r-bloggers.com/): tutorials and subject-specific help
+
+- [STHDA](http://www.sthda.com/english/): more tutorials and help pages
+
+- [One R Tip a Day](https://twitter.com/RLangTip?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor): Twitter account with daily R tips
+
+- Lots more: R has a large, very helpful online community
+--
+ (Stata's community is smaller and kinda cranky)
+
+--
+
+## Tidyverse
+
+- [Tidyverse package sites](https://www.tidyverse.org/packages/): info about Tidyverse packages and functions
+
+- [R for Data Science](https://r4ds.had.co.nz/) by Hadley Wickham: great (free!) beginner book on R, doing statistics in R, and tidy data
+
+---
+
+# R-esources
+
+## RStudio
+
+- [RStudio Community](https://community.rstudio.com/): RStudio's official community page (forums, questions, etc.)
+
+- [RStudio Blog](https://blog.rstudio.com/): RStudio's official blog
+
+- [RStudio cheatsheets](https://rstudio.com/resources/cheatsheets/): quick guides to using RStudio and many Tidyverse packages
+
+--
+
+## Using R for econometrics
+
+- [Econometrics with R](https://www.econometrics-with-r.org/): textbook for metrics in R
+
+- [Wooldridge package](https://cran.r-project.org/web/packages/wooldridge/index.html): datasets from Wooldridge's famous metrics book (useful for 640 and 641 homework)
+
+---
+
+# Cool stuff
+
+- Creating a [map of Middle Earth](https://twitter.com/andrewheiss/status/1291380121069330432) in ggplot2
+
+- [Tidy Tuesday](https://www.tidytuesday.com/): small weekly R projects (and a podcast!)
+
+- Make [slide decks](https://bookdown.org/yihui/rmarkdown/xaringan.html) in RStudio (like this one!)
+
+- Build web apps in R with [Shiny](https://shiny.rstudio.com/gallery/)
+
+- UC Irvine's [machine learning datasets](http://archive.ics.uci.edu/ml/datasets.php)
+
+- Use the [tidycensus package](https://cran.r-project.org/web/packages/tidycensus/tidycensus.pdf) to download tidy Census data from the Census API
+
+- [R Graph gallery](https://www.r-graph-gallery.com/): cool graphs people have made with ggplot
+
+- Output R regression results tables to [LaTeX](https://cran.r-project.org/web/packages/stargazer/vignettes/stargazer.pdf) and [Word](https://sejdemyr.github.io/r-tutorials/basics/tables-in-r/)
+
+---
+
+class: center, middle
+
+<a href="http://github.com/ismayc"><i class="fa fa-github fa-fw"></i>&nbsp; ismayc</a><br>
+
+---
+
+
+
 
 
 
