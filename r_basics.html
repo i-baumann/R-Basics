@@ -8,15 +8,8 @@
     <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
     <script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
     <script src="libs/jquery-1.12.4/jquery.min.js"></script>
-    <link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
-    <script src="libs/leaflet-1.3.1/leaflet.js"></script>
-    <link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
-    <script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
-    <script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
-    <link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
-    <script src="libs/leaflet-binding-2.0.3/leaflet.js"></script>
     <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-    <script src="libs/datatables-binding-0.14/datatables.js"></script>
+    <script src="libs/datatables-binding-0.15/datatables.js"></script>
     <link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
     <link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
     <script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
@@ -25,19 +18,32 @@
   </head>
   <body>
     <textarea id="source">
-class: center, middle, inverse, title-slide
+
+
+
+
+name: r-basics
+class: left, middle, inverse
+background-image: url(https://images.unsplash.com/photo-1505413687799-90481dfc0203?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2550&amp;q=80)
+background-size: cover
 
 # R Basics
-### Isaac Baumann
-### 7/30/20 (updated: 2020-08-06)
+
+## (for those learning Stata)
+
+.large[Isaac Baumann - 2020-08-06]
 
 ---
 
+class: middle, center, inverse
+
 # What is R?
 
---
+---
 
-&lt;center&gt;&lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/800px-R_logo.svg.png" height="250"&gt;&lt;/center&gt;
+class: center, middle
+
+&lt;center&gt;&lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/800px-R_logo.svg.png" height="250" /&gt;&lt;/center&gt;
 
 R is an open-source statistical analysis programming language
 
@@ -61,13 +67,15 @@ Personally, I prefer R but both have pros and cons:
 
 --
 
-.pull-left[
+&lt;br/&gt;&lt;br/&gt;
 
-  ## Stata
+.pull-left[
+  
+  &lt;center&gt;&lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Stata_Logo.svg/800px-Stata_Logo.svg.png" height = 100 /&gt;&lt;/center&gt;
 
   - Ready out-of-the-box
   - Pay-to-play: performance limited by pay tiers
-  - Economists, sociologists, some epidemiologists (changing)
+  - Economists, sociologists, some epidemiologists (this is changing)
   - Better table creation functions
   - Stata is much friendlier for econometrics
 
@@ -76,10 +84,10 @@ Personally, I prefer R but both have pros and cons:
 --
 
 .pull-right[
+  
+  &lt;center&gt;&lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/800px-R_logo.svg.png" height=100 /&gt;&lt;/center&gt;
 
-  ## R
-
-  - Higher learning curve, more customizable
+  - Steeper learning curve, but more customizable
   - Free: performance only limited by your computer
   - Statisticians, data scientists
   - Miles better than Stata for graphs
@@ -127,7 +135,7 @@ We'll be downloading two things:
 
   ## "Base" R
   
-  &lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/800px-R_logo.svg.png" height="50"&gt;
+  &lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/800px-R_logo.svg.png" height="50" /&gt;
   
   This is the actual "language"
   
@@ -138,56 +146,57 @@ We'll be downloading two things:
 
 .pull-right[
 
-  ## R Studio
+  ## RStudio
   
-  &lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/RStudio_logo_flat.svg/1920px-RStudio_logo_flat.svg.png" height="50"&gt;
+  &lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/RStudio_logo_flat.svg/1920px-RStudio_logo_flat.svg.png" height="50" /&gt;
   
   We'll use this program to write R scripts
   
-  Install from [R Studio](https://rstudio.com/products/rstudio/download/#download)
-  
+  &lt;br/&gt;
+  Install from [RStudio](https://rstudio.com/products/rstudio/download/#download)
+
 ]
 
 &lt;br/&gt;
-&lt;center&gt;&lt;p style="color:#FF0000"&gt;Install base R first, &lt;i&gt;then&lt;/i&gt; R Studio.&lt;/p&gt;&lt;/center&gt;
+&lt;center&gt;&lt;p style="color:#FF0000"&gt;Install base R first, &lt;i&gt;then&lt;/i&gt; RStudio.&lt;/p&gt;&lt;/center&gt;
 
 ---
 
-# R Studio
+# RStudio
 
-&lt;img src="./images/r-studio.png" width="800"&gt;
-
----
-
-# R Studio
-
-&lt;img src="./images/r-studio1.png" width="800"&gt;
-
-&lt;span style="color:#FF0000"&gt;&lt;b&gt;Source window&lt;/b&gt;&lt;/span&gt;: where we'll write R code (scripts)
+&lt;center&gt;&lt;img src="./images/r-studio.png" width="800" /&gt;&lt;/center&gt;
 
 ---
 
-# R Studio
+# RStudio
 
-&lt;img src="./images/r-studio2.png" width="800"&gt;
+&lt;center&gt;&lt;img src="./images/r-studio1.png" width="800" /&gt;&lt;/center&gt;
 
-&lt;span style="color:#FF0000"&gt;&lt;b&gt;Console window&lt;/b&gt;&lt;/span&gt;: where R outputs will show when we run code
-
----
-
-# R Studio
-
-&lt;img src="./images/r-studio3.png" width="800"&gt;
-
-&lt;span style="color:#FF0000"&gt;&lt;b&gt;Environment window&lt;/b&gt;&lt;/span&gt;: lists the datasets we're using
+&lt;center&gt;&lt;span style="color:#FF0000"&gt;&lt;b&gt;Source window&lt;/b&gt;&lt;/span&gt;: where we'll write R code (scripts)&lt;/center&gt;
 
 ---
 
-# R Studio
+# RStudio
 
-&lt;img src="./images/r-studio4.png" width="800"&gt;
+&lt;center&gt;&lt;img src="./images/r-studio2.png" width="800" /&gt;&lt;/center&gt;
 
-&lt;span style="color:#FF0000"&gt;&lt;b&gt;Miscellaneous window&lt;/b&gt;&lt;/span&gt;: shows plots, folders, help pages, etc.
+&lt;center&gt;&lt;span style="color:#FF0000"&gt;&lt;b&gt;Console window&lt;/b&gt;&lt;/span&gt;: where R outputs will show when we run code&lt;/center&gt;
+
+---
+
+# RStudio
+
+&lt;center&gt;&lt;img src="./images/r-studio3.png" width="800" /&gt;&lt;/center&gt;
+
+&lt;center&gt;&lt;span style="color:#FF0000"&gt;&lt;b&gt;Environment window&lt;/b&gt;&lt;/span&gt;: lists the datasets we're using&lt;/center&gt;
+
+---
+
+# RStudio
+
+&lt;center&gt;&lt;img src="./images/r-studio4.png" width="800" /&gt;&lt;/center&gt;
+
+&lt;center&gt;&lt;span style="color:#FF0000"&gt;&lt;b&gt;Miscellaneous window&lt;/b&gt;&lt;/span&gt;: shows plots, folders, help pages, etc.&lt;/center&gt;
 
 ---
 
@@ -197,7 +206,7 @@ Try it out!
 
 In the upper left-hand corner, click the &lt;span style="color:green"&gt;&lt;b&gt;green&lt;/b&gt;&lt;/span&gt; plus icon and pick "R Script"
 
-&lt;img src="./images/r-script.png" width="200"&gt;
+&lt;center&gt;&lt;img src="./images/r-script.png" width="200" /&gt;&lt;/center&gt;
 
 --
 
@@ -221,7 +230,7 @@ Then run it! Click to the left of the code (where the number 1 is) and:
 
 Congrats, you just wrote an R script!
 
-&lt;center&gt;&lt;img src="./images/hello world.png" height="450"&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="./images/hello world.png" height="450" /&gt;&lt;/center&gt;
 
 ---
 
@@ -229,7 +238,7 @@ Congrats, you just wrote an R script!
 
 --
 
-&lt;center&gt;&lt;img src="https://media1.tenor.com/images/bb9a7f04bd1cced9826bba2a0e45cd35/tenor.gif?itemid=15254720" height="175"&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="https://media1.tenor.com/images/bb9a7f04bd1cced9826bba2a0e45cd35/tenor.gif?itemid=15254720" height="175" /&gt;&lt;/center&gt;
 
 Think of &lt;b&gt;data&lt;/b&gt; like &lt;b&gt;raw construction materials&lt;/b&gt;
 
@@ -260,7 +269,7 @@ To get our &lt;b&gt;tools&lt;/b&gt;, we need to go to &lt;b&gt;Lowe's&lt;/b&gt;:
 
 &lt;b&gt;Tidyverse&lt;/b&gt;: the most important package you'll use in R
 
-&lt;center&gt;&lt;img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/tidyverse.png" height="150"&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/tidyverse.png" height="150" /&gt;&lt;/center&gt;
 
 --
 
@@ -320,15 +329,23 @@ But where do you go to look for packages?
 
 .pull-left[
 
-&lt;center&gt;&lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1920px-Google_2015_logo.svg.png" width="300px"&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1920px-Google_2015_logo.svg.png" width="300px" /&gt;&lt;/center&gt;
 
 ]
 
 .pull-right[
 
-&lt;center&gt;&lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Stack_Overflow_logo.svg/1920px-Stack_Overflow_logo.svg.png" width="300px"&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Stack_Overflow_logo.svg/1920px-Stack_Overflow_logo.svg.png" width="300px" /&gt;&lt;/center&gt;
 
 ]
+
+---
+
+class: center, middle
+background-image: url(https://images.unsplash.com/photo-1529322365446-6efd62aed02e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2551&amp;q=80)
+background-size: cover
+
+# Working with data in R
 
 ---
 
@@ -397,8 +414,6 @@ view(a)
 view(b)
 ```
 
---
-
 Until last year, you couldn't have two datasets open in Stata.
 
 --
@@ -419,7 +434,7 @@ One of the most common things you'll do with data: think about it first!
 
 There are many types of joins in R, mostly in the Tidyverse package **dplyr**:
 
-&lt;center&gt;&lt;img src="./images/joins.png", width="400px"&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="./images/joins.png", width="400px" /&gt;&lt;/center&gt;
 
 --
 
@@ -427,7 +442,7 @@ If we want to join a few airline names in `b` to many airline codes in `a`, whic
 
 --
 
-A left join!
+&lt;b&gt;A left join!&lt;/b&gt;
 
 ---
 
@@ -455,9 +470,13 @@ This tells R to:
 
 --
 
-&lt;span style="color:green"&gt;&lt;b&gt;This does not change the original data!&lt;/b&gt;&lt;/span&gt;
+🎉 &lt;span style="color:green"&gt;&lt;b&gt;This does not change the original data!&lt;/b&gt;&lt;/span&gt; 🎉
+
+--
 
 If we had done this in Stata, it would have changed `a`, the dataset we're joining `b` to. &lt;span style="color:red"&gt;&lt;b&gt;This sucks if the join doesn't work like you thought it would!&lt;/b&gt;&lt;/span&gt;
+
+--
 
 R is forgiving: if the join doesn't work, you can just fix it and try again!
 
@@ -484,7 +503,7 @@ Go look at `c`: it should have an airline name variable now!
 
 --
 
-&lt;center&gt;&lt;img src="./images/airline join.png" width="500px"&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="./images/airline join.png" width="500px" /&gt;&lt;/center&gt;
 
 ---
 
@@ -494,7 +513,7 @@ How do we remove things from R? Use `rm()`
 
 --
 
-You can remove multiple items from R Studio using `rm()`:
+You can remove multiple items from RStudio using `rm()`:
 
 
 ```r
@@ -505,7 +524,13 @@ rm(a, b, c)
 
 Or use the &amp;#129529; icon to clean out everything
 
-&lt;center&gt;&lt;img src="./images/broom.png" width="450px"&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="./images/broom.png" width="450px" /&gt;&lt;/center&gt;
+
+---
+
+class: center, inverse
+background-image: url("https://media.giphy.com/media/l1uguGf2RVIsTXNDO/giphy.gif")
+background-size: cover
 
 ---
 
@@ -513,7 +538,7 @@ class: inverse
 
 # Star Wars
 
-&lt;center&gt;&lt;img src="https://i.pinimg.com/originals/09/18/ed/0918eda1f57759878bb0a1391bc0ec74.gif" width="4000px"&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="https://i.pinimg.com/originals/09/18/ed/0918eda1f57759878bb0a1391bc0ec74.gif" width="4000px" /&gt;&lt;/center&gt;
 
 Let's learn some more stuff with Star Wars
 
@@ -521,7 +546,7 @@ Download `starwars.csv` from my [Github page](https://raw.githubusercontent.com/
 
 --
 
-Open a new R script in R Studio
+Open a new R script in RStudio
 
 ---
 
@@ -541,7 +566,7 @@ A .do file in Stata is a sequence of functions:
  
 --
 
-Use the scripting window for scripting: avoid coding in the console
+Use the source window for scripting: avoid coding in the console
  
 --
 
@@ -564,7 +589,7 @@ class: inverse
 
 ## Working directories
 
-So far we've done everything inside the R Studio environment
+So far we've done everything inside the RStudio environment
 
 --
 
@@ -572,7 +597,7 @@ As with most languages, including Stata, you'll be working out of a **working di
 
 --
 
-Setting your wd in R Studio is easy:
+Setting your wd in RStudio is easy:
 
 --
 
@@ -611,7 +636,7 @@ Use `browse` to find `starwars.csv` (**readr** will open in the wd you set)
 
 --
 
-&lt;center&gt;&lt;img src="./images/readr.png" width="500px"&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="./images/readr.png" width="500px" /&gt;&lt;/center&gt;
 
 ---
 
@@ -619,7 +644,7 @@ class: inverse
 
 # Star Wars
 
-&lt;center&gt;&lt;img src="./images/readr.png" width="600px"&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="./images/readr.png" width="600px" /&gt;&lt;/center&gt;
 
 --
 
@@ -651,6 +676,15 @@ Go ahead and look at the data
 
 --
 
+<div id="htmlwidget-2e444ba054560ff5acf4" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2e444ba054560ff5acf4">{"x":{"filter":"none","data":[["1","2","3","4","5","6"],["Luke Skywalker","C-3PO","R2-D2","Darth Vader","Leia Organa","Owen Lars"],[172,167,96,202,150,178],[77,75,32,136,49,120],["blond",null,null,"none","brown","brown, grey"],["fair","gold","white, blue","white","light","light"],["blue","yellow","red","yellow","brown","blue"],[19,112,33,41.9,19,52],["male","none","none","male","female","male"],["masculine","masculine","masculine","masculine","feminine","masculine"],["Tatooine","Tatooine","Naboo","Tatooine","Alderaan","Tatooine"],["Human","Droid","Droid","Human","Human","Human"],[["The Empire Strikes Back","Revenge of the Sith","Return of the Jedi","A New Hope","The Force Awakens"],["The Empire Strikes Back","Attack of the Clones","The Phantom Menace","Revenge of the Sith","Return of the Jedi","A New Hope"],["The Empire Strikes Back","Attack of the Clones","The Phantom Menace","Revenge of the Sith","Return of the Jedi","A New Hope","The Force Awakens"],["The Empire Strikes Back","Revenge of the Sith","Return of the Jedi","A New Hope"],["The Empire Strikes Back","Revenge of the Sith","Return of the Jedi","A New Hope","The Force Awakens"],["Attack of the Clones","Revenge of the Sith","A New Hope"]],[["Snowspeeder","Imperial Speeder Bike"],[],[],[],"Imperial Speeder Bike",[]],[["X-wing","Imperial shuttle"],[],[],"TIE Advanced x1",[],[]]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>name<\/th>\n      <th>height<\/th>\n      <th>mass<\/th>\n      <th>hair_color<\/th>\n      <th>skin_color<\/th>\n      <th>eye_color<\/th>\n      <th>birth_year<\/th>\n      <th>sex<\/th>\n      <th>gender<\/th>\n      <th>homeworld<\/th>\n      <th>species<\/th>\n      <th>films<\/th>\n      <th>vehicles<\/th>\n      <th>starships<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"searching":false,"pageLength":1,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[2,3,7]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[1,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+
+---
+
+class: inverse
+
+# Star Wars
+
 Let's find out how many planets are in `starwars`
 
 --
@@ -672,9 +706,37 @@ In `starwars` the planet variable/column is `homeworld`, so:
 starwars$homeworld
 ```
 
+---
+
+class: inverse
+
+# Star Wars
+
+
+```r
+starwars$homeworld
+```
+
 --
 
-Not very helpful! R gives us the whole column!
+
+```
+##  [1] "Tatooine"       "Tatooine"       "Naboo"          "Tatooine"      
+##  [5] "Alderaan"       "Tatooine"       "Tatooine"       "Tatooine"      
+##  [9] "Tatooine"       "Stewjon"        "Tatooine"       "Eriadu"        
+## [13] "Kashyyyk"       "Corellia"       "Rodia"          "Nal Hutta"     
+## [17] "Corellia"       "Bestine IV"     NA               "Naboo"         
+## [21] "Kamino"         NA               "Trandosha"      "Socorro"       
+## [25] "Bespin"         "Mon Cala"       "Chandrila"      NA              
+## [29] "Endor"          "Sullust"        NA               "Cato Neimoidia"
+## [33] "Coruscant"      "Naboo"          "Naboo"          "Naboo"         
+## [37] "Naboo"          "Toydaria"       "Malastare"      "Naboo"         
+...
+```
+
+--
+
+Not very helpful! R gives us the whole column, duplicates and all!
 
 ---
 
@@ -693,6 +755,27 @@ unique(starwars$homeworld)
 
 --
 
+
+```
+##  [1] "Tatooine"       "Naboo"          "Alderaan"       "Stewjon"       
+##  [5] "Eriadu"         "Kashyyyk"       "Corellia"       "Rodia"         
+##  [9] "Nal Hutta"      "Bestine IV"     NA               "Kamino"        
+## [13] "Trandosha"      "Socorro"        "Bespin"         "Mon Cala"      
+## [17] "Chandrila"      "Endor"          "Sullust"        "Cato Neimoidia"
+## [21] "Coruscant"      "Toydaria"       "Malastare"      "Dathomir"      
+## [25] "Ryloth"         "Vulpter"        "Troiken"        "Tund"          
+## [29] "Haruun Kal"     "Cerea"          "Glee Anselm"    "Iridonia"      
+## [33] "Iktotch"        "Quermia"        "Dorin"          "Champala"      
+## [37] "Geonosis"       "Mirial"         "Serenno"        "Concord Dawn"  
+...
+```
+
+---
+
+class: inverse
+
+# Star Wars
+
 We can even alphabetize the vector using `sort()`:
 
 
@@ -702,11 +785,49 @@ sort(unique(starwars$homeworld))
 
 --
 
+
+```
+##  [1] "Alderaan"       "Aleen Minor"    "Bespin"         "Bestine IV"    
+##  [5] "Cato Neimoidia" "Cerea"          "Champala"       "Chandrila"     
+##  [9] "Concord Dawn"   "Corellia"       "Coruscant"      "Dathomir"      
+## [13] "Dorin"          "Endor"          "Eriadu"         "Geonosis"      
+## [17] "Glee Anselm"    "Haruun Kal"     "Iktotch"        "Iridonia"      
+## [21] "Kalee"          "Kamino"         "Kashyyyk"       "Malastare"     
+## [25] "Mirial"         "Mon Cala"       "Muunilinst"     "Naboo"         
+## [29] "Nal Hutta"      "Ojom"           "Quermia"        "Rodia"         
+## [33] "Ryloth"         "Serenno"        "Shili"          "Skako"         
+## [37] "Socorro"        "Stewjon"        "Sullust"        "Tatooine"      
+...
+```
+
+---
+
+class: inverse
+
+# Star Wars
+
 Say we're only interested in Tatooine: use **dplyr**'s `filter()` function to get only the Star Wars people from Tatooine:
 
 
 ```r
 filter(starwars, homeworld == "Tatooine")
+```
+
+--
+
+
+```
+## # A tibble: 10 x 14
+##    name  height  mass hair_color skin_color eye_color birth_year sex   gender
+##    &lt;chr&gt;  &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+##  1 Luke…    172    77 blond      fair       blue            19   male  mascu…
+##  2 C-3PO    167    75 &lt;NA&gt;       gold       yellow         112   none  mascu…
+##  3 Dart…    202   136 none       white      yellow          41.9 male  mascu…
+##  4 Owen…    178   120 brown, gr… light      blue            52   male  mascu…
+##  5 Beru…    165    75 brown      light      blue            47   fema… femin…
+##  6 R5-D4     97    32 &lt;NA&gt;       white, red red             NA   none  mascu…
+##  7 Bigg…    183    84 black      light      brown           24   male  mascu…
+...
 ```
 
 --
@@ -735,6 +856,15 @@ Use `colnames()` or `ls()` to look at column/variable names in console:
 ```r
 colnames(starwars)
 ls(starwars)
+```
+
+--
+
+
+```
+##  [1] "birth_year" "eye_color"  "films"      "gender"     "hair_color"
+##  [6] "height"     "homeworld"  "mass"       "name"       "sex"       
+## [11] "skin_color" "species"    "starships"  "vehicles"
 ```
 
 --
@@ -816,7 +946,30 @@ Let's view the results!
 model
 ```
 
---
+```
+## 
+## Call:
+## lm(formula = mass ~ height + homeworld + species, data = starwars)
+## 
+## Coefficients:
+##             (Intercept)                   height     homeworldAleen Minor  
+##                -88.7064                   0.7558                  43.9948  
+##         homeworldBespin      homeworldBestine IV  homeworldCato Neimoidia  
+##                 10.4649                  37.6857                  34.3403  
+##          homeworldCerea    homeworldConcord Dawn        homeworldCorellia  
+##                 21.0493                   4.4182                   9.9649  
+##      homeworldCoruscant        homeworldDathomir           homeworldDorin  
+##                 -0.3688                  36.4338                  26.6078  
+##          homeworldEndor        homeworldGeonosis     homeworldGlee Anselm  
+##                 42.1922                  30.3870                  27.5610  
+...
+```
+
+---
+
+class: inverse
+
+# Star Wars
 
 Not very useful...
 --
@@ -829,9 +982,31 @@ summary(model)
 
 --
 
-Much more useful!
 
---
+```
+## 
+## Call:
+## lm(formula = mass ~ height + homeworld + species, data = starwars)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -21.59   0.00   0.00   0.00  28.80 
+## 
+## Coefficients: (26 not defined because of singularities)
+##                          Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)              -88.7064    52.2128  -1.699  0.11312    
+## height                     0.7558     0.2151   3.515  0.00381 ** 
+## homeworldAleen Minor      43.9948    40.9761   1.074  0.30250    
+## homeworldBespin           10.4649    18.8319   0.556  0.58785    
+## homeworldBestine IV       37.6857    18.9360   1.990  0.06803 .  
+...
+```
+
+---
+
+class: inverse
+
+# Star Wars
 
 Questions:
 
@@ -891,7 +1066,26 @@ class: inverse
 
 ## Data visualization
 
-### Histograms in base R
+.pull-left[
+
+```r
+plot(starwars$mass,starwars$height)
+```
+]
+
+.pull-right[
+
+&lt;img src="r_basics_files/figure-html/unnamed-chunk-36-1.png" width="504" /&gt;
+
+]
+
+---
+
+class: inverse
+
+# Star Wars
+
+## Data visualization
 
 Histograms are frequency plots: they tell us how many times a value appears
 
@@ -911,14 +1105,43 @@ Let's make a histogram of Star Wars characters' weights:
 hist(starwars$mass)
 ```
 
---
+---
 
-More detailed:
+class: inverse
 
+# Star Wars
+
+## Data visualization
+
+.pull-left[
 
 ```r
-hist(starwars$mass, breaks = 100)
+hist(starwars$mass)
 ```
+]
+
+.pull-right[
+&lt;img src="r_basics_files/figure-html/unnamed-chunk-40-1.png" width="504" /&gt;
+]
+
+---
+
+class: inverse
+
+# Star Wars
+
+## Data visualization
+
+.pull-left[
+
+```r
+hist(starwars$mass, `breaks = 100`)
+```
+]
+
+.pull-right[
+&lt;img src="r_basics_files/figure-html/unnamed-chunk-42-1.png" width="504" /&gt;
+]
 
 ---
 
@@ -929,7 +1152,7 @@ class: inverse
 ## Data visualization
 
 &lt;br/&gt;
-&lt;center&gt;&lt;img src="https://thumbs.gfycat.com/KaleidoscopicSecondaryGazelle-small.gif", width = 700&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="https://thumbs.gfycat.com/KaleidoscopicSecondaryGazelle-small.gif", width = 700 /&gt;&lt;/center&gt;
 
 ---
 
@@ -943,7 +1166,7 @@ class: inverse
 
 Base R plots:
 
-&lt;img src="./images/yoad.png", width = 400&gt;
+&lt;img src="./images/yoad.png", height = 300 /&gt;
 
 ]
 
@@ -952,8 +1175,8 @@ Base R plots:
 .pull-right[
 
 ggplot2 plots:
-&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;
-&lt;img src="https://vignette.wikia.nocookie.net/starwars/images/9/98/Yoda1280.jpg/revision/latest?cb=20070224213010", width = 400&gt;
+
+&lt;img src="https://vignette.wikia.nocookie.net/starwars/images/9/98/Yoda1280.jpg/revision/latest?cb=20070224213010", height=300 /&gt;
 
 ]
 
@@ -965,7 +1188,7 @@ class: inverse
 
 ## Data visualization: ggplot2
 
-&lt;center&gt;&lt;img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/ggplot2.png" height="150"&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/ggplot2.png", height=200 /&gt;&lt;/center&gt;
 
 ggplot2 is _another_ Tidyverse package
 
@@ -1044,9 +1267,30 @@ geom functions tell ggplot what kind of graph we want
 
 - `geom_point` tells ggplot we want a scatterplot
 
+---
+
+class: inverse
+
+# Star Wars
+
+## Data visualization: ggplot2
+
+.pull-left[
+
+```r
+ggplot(data = starwars, aes(x = mass, 
+                            y = height)) + 
+  geom_point()
+```
+]
+
+.pull-right[
+&lt;img src="r_basics_files/figure-html/unnamed-chunk-45-1.png" width="504" /&gt;
+]
+
 --
 
-Doesn't look very different - let's get fancy
+Not very different - let's get fancy
 
 ---
 
@@ -1058,33 +1302,68 @@ class: inverse
 
 How about adding a title?
 
+.pull-left[
 
 ```r
-ggplot(data = starwars, aes(x = mass, y = height)) + geom_point() +
-  labs(title = "Star Wars Weights and Heights")
+ggplot(data = starwars, aes(x = mass, 
+                            y = height)) + 
+  geom_point() +
+  `labs(title = "Star Wars Weight &amp; Height")`
 ```
+]
 
---
+.pull-right[
+&lt;img src="r_basics_files/figure-html/unnamed-chunk-47-1.png" width="504" /&gt;
+]
+
+---
+
+class: inverse
+
+# Star Wars
+
+## Data visualization: ggplot2
 
 Let's change the dots to stars:
 
+.pull-left[
 
 ```r
-ggplot(data = starwars, aes(x = mass, y = height)) + 
-  geom_point(shape = 8) +
-  labs(title = "Star Wars Weights and Heights")
+ggplot(data = starwars, aes(x = mass, 
+                            y = height)) + 
+  geom_point(`shape = 8`) +
+  labs(title = "Star Wars Weight &amp; Height")
 ```
+]
 
---
+.pull-right[
+&lt;img src="r_basics_files/figure-html/unnamed-chunk-49-1.png" width="504" /&gt;
+]
+
+---
+
+class: inverse
+
+# Star Wars
+
+## Data visualization: ggplot2
 
 Make them smaller and change the color:
 
+.pull-left[
 
 ```r
-ggplot(data = starwars, aes(x = mass, y = height)) + 
-  geom_point(shape = 8, size = .75, color = "red") +
-  labs(title = "Star Wars Weights and Heights")
+ggplot(data = starwars, aes(x = mass, 
+                            y = height)) + 
+  geom_point(shape = 8, 
+             `size = .75, color = "red"`) +
+  labs(title = "Star Wars Weight &amp; Height")
 ```
+]
+
+.pull-right[
+&lt;img src="r_basics_files/figure-html/unnamed-chunk-51-1.png" width="504" /&gt;
+]
 
 ---
 
@@ -1096,26 +1375,48 @@ class: inverse
 
 Get rid of Jabba the Hutt and plot a line of best fit:
 
+.pull-left[
 
 ```r
-ggplot(data = filter(starwars, mass &lt; 500), aes(x = mass, y = height)) + 
-  geom_point(shape = 8, size = .75, color = "red") +
-  labs(title = "Star Wars Weights and Heights") +
-  geom_smooth(method = "lm")
+ggplot(data = `filter(starwars, mass &lt; 500)`, 
+       aes(x = mass, y = height)) + 
+  geom_point(shape = 8, 
+             size = .75, color = "red") +
+  labs(title = "Star Wars Weight &amp; Height") +
+  `geom_smooth(method = "lm")`
 ```
+]
 
---
+.pull-right[
+&lt;img src="r_basics_files/figure-html/unnamed-chunk-53-1.png" width="504" /&gt;
+]
+
+---
+
+class: inverse
+
+# Star Wars
+
+## Data visualization: ggplot2
 
 Go the the Dark Side!
 
+.pull-left[
 
 ```r
-ggplot(data = filter(starwars, mass &lt; 500), aes(x = mass, y = height)) + 
-  geom_point(shape = 8, size = .75, color = "red") +
-  labs(title = "Star Wars Weights and Heights") +
+ggplot(data = filter(starwars, mass &lt; 500), 
+       aes(x = mass, y = height)) + 
+  geom_point(shape = 8, 
+             size = .75, color = "red") +
+  labs(title = "Star Wars Weight &amp; Height") +
   geom_smooth(method = "lm") +
-  theme_dark()
+  `theme_dark()`
 ```
+]
+
+.pull-right[
+&lt;img src="r_basics_files/figure-html/unnamed-chunk-55-1.png" width="504" /&gt;
+]
 
 ---
 
@@ -1131,23 +1432,53 @@ Histograms are also easy: just change the geom!
 
 Histograms are a frequency of one variable: let's do mass (height won't be the y axis)
 
---
-
 
 ```r
 ggplot(data = starwars, aes(x = mass)) + 
   geom_histogram()
 ```
 
---
+---
 
-Increase the number of bins:
+class: inverse
 
+# Star Wars
+
+## Data visualization: ggplot2
+
+.pull-left[
 
 ```r
 ggplot(data = starwars, aes(x = mass)) + 
-  geom_histogram(bins = 100)
+  geom_histogram()
 ```
+]
+
+.pull-right[
+&lt;img src="r_basics_files/figure-html/unnamed-chunk-58-1.png" width="504" /&gt;
+]
+
+---
+
+class: inverse
+
+# Star Wars
+
+## Data visualization: ggplot2
+
+Increase the number of bins:
+
+.pull-left[
+
+```r
+ggplot(data = starwars, aes(x = mass)) + 
+  geom_histogram(`bins = 100`)
+```
+]
+
+.pull-right[
+&lt;img src="r_basics_files/figure-html/unnamed-chunk-60-1.png" width="504" /&gt;
+]
 
 ---
 
@@ -1160,26 +1491,48 @@ class: inverse
 Can we group the data?
 --
  *Absolutely!*
+--
+ Let's look at mass by gender:
  
 --
 
-Let's look at mass by gender:
-
+.pull-left[
 
 ```r
-ggplot(data = starwars, aes(x = mass, color = gender)) + 
+ggplot(data = starwars, 
+       aes(x = mass, `color = gender`)) + 
   geom_histogram(bins = 100)
 ```
+]
 
---
+.pull-right[
+&lt;img src="r_basics_files/figure-html/unnamed-chunk-62-1.png" width="504" /&gt;
+]
+
+---
+
+class: inverse
+
+# Star Wars
+
+## Data visualization: ggplot2
 
 Fill in the bars and "dodge" them:
 
+.pull-left[
 
 ```r
-ggplot(data = starwars, aes(x = mass, color = gender, fill = gender)) + 
-  geom_histogram(bins = 100, position = "dodge2")
+ggplot(data = starwars, 
+       aes(x = mass, color = gender, 
+           `fill = gender`)) + 
+  geom_histogram(bins = 100, 
+           `position = "dodge2"`)
 ```
+]
+
+.pull-right[
+&lt;img src="r_basics_files/figure-html/unnamed-chunk-64-1.png" width="504" /&gt;
+]
 
 ---
 
@@ -1199,7 +1552,7 @@ You can make [maps](https://ggplot2.tidyverse.org/reference/map_data.html)
 
 You can even [draw BB-8](https://gist.github.com/pvictor/2f1b498b90fab5427b1b0103d51e509a)!
 
-&lt;center&gt;&lt;img src = "https://cloud.githubusercontent.com/assets/4415580/14786276/7367d6e4-0afe-11e6-998d-8956dc034916.png", height = 250&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src = "https://cloud.githubusercontent.com/assets/4415580/14786276/7367d6e4-0afe-11e6-998d-8956dc034916.png", height = 250 /&gt;&lt;/center&gt;
 
 ---
 
@@ -1213,7 +1566,9 @@ We're done with our Star Wars project: what now?
 
 --
 
-R's data files have an `.rda` extension - .rda files:
+R's data files have an `.rda` extension.
+--
+ .rda files:
 
 --
 
@@ -1271,7 +1626,7 @@ Save your script: `File -&gt; Save As`
 
 --
 
-Or click the &amp;#128190; icon at the top of the scripting window
+Or click the &amp;#128190; icon at the top of the source window
 
 --
 
@@ -1323,7 +1678,7 @@ _Think ahead while scripting_: don't take shortcuts, take the time to do it righ
 
 ## Using R for econometrics
 
-- [Econometrics with R](https://www.econometrics-with-r.org/): textbook for metrics in R
+- [Econometrics with R](https://www.econometrics-with-r.org/): (free!) textbook for metrics in R
 
 - [Wooldridge package](https://cran.r-project.org/web/packages/wooldridge/index.html): datasets from Wooldridge's famous metrics book (useful for 640 and 641 homework)
 
@@ -1351,702 +1706,19 @@ _Think ahead while scripting_: don't take shortcuts, take the time to do it righ
 
 class: center, middle
 
-&lt;a href="http://github.com/ismayc"&gt;&lt;i class="fa fa-github fa-fw"&gt;&lt;/i&gt;&amp;nbsp; ismayc&lt;/a&gt;&lt;br&gt;
+&lt;img class="circle" src="https://github.com/i-baumann.png" width=150 /&gt;
 
----
-
-
-
-
-
-
-Install the **xaringan** package from [Github](https://github.com/yihui/xaringan):
-
-
-```r
-devtools::install_github("yihui/xaringan")
-```
-
---
-
-You are recommended to use the [RStudio IDE](https://www.rstudio.com/products/rstudio/), but you do not have to.
-
-- Create a new R Markdown document from the menu `File -&gt; New File -&gt; R Markdown -&gt; From Template -&gt; Ninja Presentation`;&lt;sup&gt;1&lt;/sup&gt;
-
---
-
-- Click the `Knit` button to compile it;
-
---
-
-- or use the [RStudio Addin](https://rstudio.github.io/rstudioaddins/)&lt;sup&gt;2&lt;/sup&gt; "Infinite Moon Reader" to live preview the slides (every time you update and save the Rmd document, the slides will be automatically reloaded in RStudio Viewer.
-
-.footnote[
-[1] 中文用户请看[这份教程](http://slides.yihui.org/xaringan/zh-CN.html)
-
-[2] See [#2](https://github.com/yihui/xaringan/issues/2) if you do not see the template or addin in RStudio.
-]
-
----
-background-image: url(https://github.com/yihui/xaringan/releases/download/v0.0.2/karl-moustache.jpg)
-background-position: 50% 50%
-class: center, bottom, inverse
-
-# You only live once!
-
----
-
-# Hello Ninja
-
-As a presentation ninja, you certainly should not be satisfied by the "Hello World" example. You need to understand more about two things:
-
-1. The [remark.js](https://remarkjs.com) library;
-
-1. The **xaringan** package;
-
-Basically **xaringan** injected the chakra of R Markdown (minus Pandoc) into **remark.js**. The slides are rendered by remark.js in the web browser, and the Markdown source needed by remark.js is generated from R Markdown (**knitr**).
-
----
-
-# remark.js
-
-You can see an introduction of remark.js from [its homepage](https://remarkjs.com). You should read the [remark.js Wiki](https://github.com/gnab/remark/wiki) at least once to know how to
-
-- create a new slide (Markdown syntax&lt;sup&gt;*&lt;/sup&gt; and slide properties);
-
-- format a slide (e.g. text alignment);
-
-- configure the slideshow;
-
-- and use the presentation (keyboard shortcuts).
-
-It is important to be familiar with remark.js before you can understand the options in **xaringan**.
-
-.footnote[[*] It is different with Pandoc's Markdown! It is limited but should be enough for presentation purposes. Come on... You do not need a slide for the Table of Contents! Well, the Markdown support in remark.js [may be improved](https://github.com/gnab/remark/issues/142) in the future.]
-
----
-background-image: url(https://github.com/yihui/xaringan/releases/download/v0.0.2/karl-moustache.jpg)
-background-size: cover
-class: center, bottom, inverse
-
-# I was so happy to have discovered remark.js!
-
----
-class: inverse, middle, center
-
-# Using xaringan
-
----
-
-# xaringan
-
-Provides an R Markdown output format `xaringan::moon_reader` as a wrapper for remark.js, and you can use it in the YAML metadata, e.g.
-
-```yaml
----
-title: "A Cool Presentation"
-output:
-  xaringan::moon_reader:
-    yolo: true
-    nature:
-      autoplay: 30000
----
-```
-
-See the help page `?xaringan::moon_reader` for all possible options that you can use.
-
----
-
-# remark.js vs xaringan
-
-Some differences between using remark.js (left) and using **xaringan** (right):
-
-.pull-left[
-1. Start with a boilerplate HTML file;
-
-1. Plain Markdown;
-
-1. Write JavaScript to autoplay slides;
-
-1. Manually configure MathJax;
-
-1. Highlight code with `*`;
-
-1. Edit Markdown source and refresh browser to see updated slides;
-]
-
-.pull-right[
-1. Start with an R Markdown document;
-
-1. R Markdown (can embed R/other code chunks);
-
-1. Provide an option `autoplay`;
-
-1. MathJax just works;&lt;sup&gt;*&lt;/sup&gt;
-
-1. Highlight code with `{{}}`;
-
-1. The RStudio addin "Infinite Moon Reader" automatically refreshes slides on changes;
-]
-
-.footnote[[*] Not really. See next page.]
-
----
-
-# Math Expressions
-
-You can write LaTeX math expressions inside a pair of dollar signs, e.g. &amp;#36;\alpha+\beta$ renders `\(\alpha+\beta\)`. You can use the display style with double dollar signs:
-
-```
-$$\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i$$
-```
-
-`$$\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i$$`
-
-Limitations:
-
-1. The source code of a LaTeX math expression must be in one line, unless it is inside a pair of double dollar signs, in which case the starting `$$` must appear in the very beginning of a line, followed immediately by a non-space character, and the ending `$$` must be at the end of a line, led by a non-space character;
-
-1. There should not be spaces after the opening `$` or before the closing `$`.
-
-1. Math does not work on the title slide (see [#61](https://github.com/yihui/xaringan/issues/61) for a workaround).
-
----
-
-# R Code
-
-
-```r
-# a boring regression
-fit = lm(dist ~ 1 + speed, data = cars)
-coef(summary(fit))
-```
-
-```
-#               Estimate Std. Error   t value     Pr(&gt;|t|)
-# (Intercept) -17.579095  6.7584402 -2.601058 1.231882e-02
-# speed         3.932409  0.4155128  9.463990 1.489836e-12
-```
-
-```r
-dojutsu = c('地爆天星', '天照', '加具土命', '神威', '須佐能乎', '無限月読')
-grep('天', dojutsu, value = TRUE)
-```
-
-```
-# [1] "地爆天星" "天照"
-```
-
----
-
-# R Plots
-
-
-```r
-par(mar = c(4, 4, 1, .1))
-plot(cars, pch = 19, col = 'darkgray', las = 1)
-abline(fit, lwd = 2)
-```
-
-![](r_basics_files/figure-html/cars-1.svg)&lt;!-- --&gt;
-
----
-
-# Tables
-
-If you want to generate a table, make sure it is in the HTML format (instead of Markdown or other formats), e.g.,
-
-
-```r
-knitr::kable(head(iris), format = 'html')
-```
-
-&lt;table&gt;
- &lt;thead&gt;
-  &lt;tr&gt;
-   &lt;th style="text-align:right;"&gt; Sepal.Length &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; Sepal.Width &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; Petal.Length &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; Petal.Width &lt;/th&gt;
-   &lt;th style="text-align:left;"&gt; Species &lt;/th&gt;
-  &lt;/tr&gt;
- &lt;/thead&gt;
-&lt;tbody&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:right;"&gt; 5.1 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.5 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; setosa &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:right;"&gt; 4.9 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.0 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; setosa &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:right;"&gt; 4.7 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.2 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.3 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; setosa &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:right;"&gt; 4.6 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.1 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.5 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; setosa &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:right;"&gt; 5.0 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.6 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; setosa &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:right;"&gt; 5.4 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.9 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.7 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.4 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; setosa &lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
----
-
-# HTML Widgets
-
-I have not thoroughly tested HTML widgets against **xaringan**. Some may work well, and some may not. It is a little tricky.
-
-Similarly, the Shiny mode (`runtime: shiny`) does not work. I might get these issues fixed in the future, but these are not of high priority to me. I never turn my presentation into a Shiny app. When I need to demonstrate more complicated examples, I just launch them separately. It is convenient to share slides with other people when they are plain HTML/JS applications.
-
-See the next page for two HTML widgets.
-
----
-
-
-```r
-library(leaflet)
-leaflet() %&gt;% addTiles() %&gt;% setView(-93.65, 42.0285, zoom = 17)
-```
-
-<div id="htmlwidget-d2a277e726c33a3ca6a5" style="width:100%;height:432px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-d2a277e726c33a3ca6a5">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}],"setView":[[42.0285,-93.65],17,[]]},"evals":[],"jsHooks":[]}</script>
-
----
-
-
-```r
-DT::datatable(
-  head(iris, 10),
-  fillContainer = FALSE, options = list(pageLength = 8)
-)
-```
-
-<div id="htmlwidget-19a4059476b991f3cf3b" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-19a4059476b991f3cf3b">{"x":{"filter":"none","fillContainer":false,"data":[["1","2","3","4","5","6","7","8","9","10"],[5.1,4.9,4.7,4.6,5,5.4,4.6,5,4.4,4.9],[3.5,3,3.2,3.1,3.6,3.9,3.4,3.4,2.9,3.1],[1.4,1.4,1.3,1.5,1.4,1.7,1.4,1.5,1.4,1.5],[0.2,0.2,0.2,0.2,0.2,0.4,0.3,0.2,0.2,0.1],["setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Sepal.Length<\/th>\n      <th>Sepal.Width<\/th>\n      <th>Petal.Length<\/th>\n      <th>Petal.Width<\/th>\n      <th>Species<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":8,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[8,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
-
----
-
-# Some Tips
-
-- When you use the "Infinite Moon Reader" addin in RStudio, your R session will be blocked by default. You can click the red button on the right of the console to stop serving the slides, or use the _daemonized_ mode so that it does not block your R session. To do the latter, you can set the option
-
-    ```r
-    options(servr.daemon = TRUE)
-    ```
-    
-    in your current R session, or in `~/.Rprofile` so that it is applied to all future R sessions. I do the latter by myself.
-    
-    To know more about the web server, see the [**servr**](https://github.com/yihui/servr) package.
-
---
-
-- Do not forget to try the `yolo` option of `xaringan::moon_reader`.
-
-    ```yaml
-    output:
-      xaringan::moon_reader:
-        yolo: true
-    ```
-
----
-
-# Some Tips
-
-- Slides can be automatically played if you set the `autoplay` option under `nature`, e.g. go to the next slide every 30 seconds in a lightning talk:
-
-    ```yaml
-    output:
-      xaringan::moon_reader:
-        nature:
-          autoplay: 30000
-    ```
-
---
-
-- A countdown timer can be added to every page of the slides using the `countdown` option under `nature`, e.g. if you want to spend one minute on every page when you give the talk, you can set:
-
-    ```yaml
-    output:
-      xaringan::moon_reader:
-        nature:
-          countdown: 60000
-    ```
-
-    Then you will see a timer counting down from `01:00`, to `00:59`, `00:58`, ... When the time is out, the timer will continue but the time turns red.
-    
----
-
-# Some Tips
-
-- The title slide is created automatically by **xaringan**, but it is just another remark.js slide added before your other slides.
-
-    The title slide is set to `class: center, middle, inverse, title-slide` by default. You can change the classes applied to the title slide with the `titleSlideClass` option of `nature` (`title-slide` is always applied).
-
-    ```yaml
-    output:
-      xaringan::moon_reader:
-        nature:
-          titleSlideClass: [top, left, inverse]
-    ```
-    
---
-
-- If you'd like to create your own title slide, disable **xaringan**'s title slide with the `seal = FALSE` option of `moon_reader`.
-
-    ```yaml
-    output:
-      xaringan::moon_reader:
-        seal: false
-    ```
-
----
-
-# Some Tips
-
-- There are several ways to build incremental slides. See [this presentation](https://slides.yihui.org/xaringan/incremental.html) for examples.
-
-- The option `highlightLines: true` of `nature` will highlight code lines that start with `*`, or are wrapped in `{{ }}`, or have trailing comments `#&lt;&lt;`;
-
-    ```yaml
-    output:
-      xaringan::moon_reader:
-        nature:
-          highlightLines: true
-    ```
-
-    See examples on the next page.
-
----
-
-# Some Tips
-
-
-.pull-left[
-An example using a leading `*`:
-
-    ```r
-    if (TRUE) {
-    ** message("Very important!")
-    }
-    ```
-Output:
-```r
-if (TRUE) {
-* message("Very important!")
-}
-```
-
-This is invalid R code, so it is a plain fenced code block that is not executed.
-]
-
-.pull-right[
-An example using `{{}}`:
-
-````
-```{r tidy=FALSE}
-if (TRUE) {
-*{{ message("Very important!") }}
-}
-```
-````
-Output:
-
-```r
-if (TRUE) {
-* message("Very important!") 
-}
-```
-
-```
-## Very important!
-```
-
-It is valid R code so you can run it. Note that `{{}}` can wrap an R expression of multiple lines.
-]
-
----
-
-# Some Tips
-
-An example of using the trailing comment `#&lt;&lt;` to highlight lines:
-
-````markdown
-```{r tidy=FALSE}
-library(ggplot2)
-ggplot(mtcars) + 
-  aes(mpg, disp) + 
-  geom_point() +   #&lt;&lt;
-  geom_smooth()    #&lt;&lt;
-```
-````
-
-Output:
-
-
-```r
-library(ggplot2)
-ggplot(mtcars) + 
-  aes(mpg, disp) + 
-* geom_point() +
-* geom_smooth()
-```
-
----
-
-# Some Tips
-
-When you enable line-highlighting, you can also use the chunk option `highlight.output` to highlight specific lines of the text output from a code chunk. For example, `highlight.output = TRUE` means highlighting all lines, and `highlight.output = c(1, 3)` means highlighting the first and third line.
-
-````md
-```{r, highlight.output=c(1, 3)}
-head(iris)
-```
-````
-
-
-```
-*##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
-## 1          5.1         3.5          1.4         0.2  setosa
-*## 2          4.9         3.0          1.4         0.2  setosa
-## 3          4.7         3.2          1.3         0.2  setosa
-## 4          4.6         3.1          1.5         0.2  setosa
-## 5          5.0         3.6          1.4         0.2  setosa
-## 6          5.4         3.9          1.7         0.4  setosa
-```
-
-Question: what does `highlight.output = c(TRUE, FALSE)` mean? (Hint: think about R's recycling of vectors)
-
----
-
-# Some Tips
-
-- To make slides work offline, you need to download a copy of remark.js in advance, because **xaringan** uses the online version by default (see the help page `?xaringan::moon_reader`).
-
-- You can use `xaringan::summon_remark()` to download the latest or a specified version of remark.js. By default, it is downloaded to `libs/remark-latest.min.js`.
-
-- Then change the `chakra` option in YAML to point to this file, e.g.
-
-    ```yaml
-    output:
-      xaringan::moon_reader:
-        chakra: libs/remark-latest.min.js
-    ```
-
-- If you used Google fonts in slides (the default theme uses _Yanone Kaffeesatz_, _Droid Serif_, and _Source Code Pro_), they won't work offline unless you download or install them locally. The Heroku app [google-webfonts-helper](https://google-webfonts-helper.herokuapp.com/fonts) can help you download fonts and generate the necessary CSS.
-
----
-
-# Macros
-
-- remark.js [allows users to define custom macros](https://github.com/yihui/xaringan/issues/80) (JS functions) that can be applied to Markdown text using the syntax `![:macroName arg1, arg2, ...]` or `![:macroName arg1, arg2, ...](this)`. For example, before remark.js initializes the slides, you can define a macro named `scale`:
-
-    ```js
-    remark.macros.scale = function (percentage) {
-      var url = this;
-      return '&lt;img src="' + url + '" style="width: ' + percentage + '" /&gt;';
-    };
-    ```
-
-    Then the Markdown text
-
-    ```markdown
-    ![:scale 50%](image.jpg)
-    ```
-
-    will be translated to
-    
-    ```html
-    &lt;img src="image.jpg" style="width: 50%" /&gt;
-    ```
-
----
-
-# Macros (continued)
-
-- To insert macros in **xaringan** slides, you can use the option `beforeInit` under the option `nature`, e.g.,
-
-    ```yaml
-    output:
-      xaringan::moon_reader:
-        nature:
-          beforeInit: "macros.js"
-    ```
-
-    You save your remark.js macros in the file `macros.js`.
-
-- The `beforeInit` option can be used to insert arbitrary JS code before `remark.create()`. Inserting macros is just one of its possible applications.
-
----
-
-# CSS
-
-Among all options in `xaringan::moon_reader`, the most challenging but perhaps also the most rewarding one is `css`, because it allows you to customize the appearance of your slides using any CSS rules or hacks you know.
-
-You can see the default CSS file [here](https://github.com/yihui/xaringan/blob/master/inst/rmarkdown/templates/xaringan/resources/default.css). You can completely replace it with your own CSS files, or define new rules to override the default. See the help page `?xaringan::moon_reader` for more information.
-
----
-
-# CSS
-
-For example, suppose you want to change the font for code from the default "Source Code Pro" to "Ubuntu Mono". You can create a CSS file named, say, `ubuntu-mono.css`:
-
-```css
-@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
-
-.remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
-```
-
-Then set the `css` option in the YAML metadata:
-
-```yaml
-output:
-  xaringan::moon_reader:
-    css: ["default", "ubuntu-mono.css"]
-```
-
-Here I assume `ubuntu-mono.css` is under the same directory as your Rmd.
-
-See [yihui/xaringan#83](https://github.com/yihui/xaringan/issues/83) for an example of using the [Fira Code](https://github.com/tonsky/FiraCode) font, which supports ligatures in program code.
-
----
-
-# Themes
-
-Don't want to learn CSS? Okay, you can use some user-contributed themes. A theme typically consists of two CSS files `foo.css` and `foo-fonts.css`, where `foo` is the theme name. Below are some existing themes:
-
-
-```r
-names(xaringan:::list_css())
-```
-
-```
-##  [1] "chocolate-fonts"  "chocolate"        "default-fonts"    "default"         
-##  [5] "duke-blue"        "fc-fonts"         "fc"               "hygge-duke"      
-##  [9] "hygge"            "ki-fonts"         "ki"               "kunoichi"        
-## [13] "lucy-fonts"       "lucy"             "metropolis-fonts" "metropolis"      
-## [17] "middlebury-fonts" "middlebury"       "ninjutsu"         "rladies-fonts"   
-## [21] "rladies"          "robot-fonts"      "robot"            "rutgers-fonts"   
-## [25] "rutgers"          "shinobi"          "tamu-fonts"       "tamu"            
-## [29] "uo-fonts"         "uo"               "uol-fonts"        "uol"
-```
-
----
-
-# Themes
-
-To use a theme, you can specify the `css` option as an array of CSS filenames (without the `.css` extensions), e.g.,
-
-```yaml
-output:
-  xaringan::moon_reader:
-    css: [default, metropolis, metropolis-fonts]
-```
-
-If you want to contribute a theme to **xaringan**, please read [this blog post](https://yihui.org/en/2017/10/xaringan-themes).
-
----
-class: inverse, middle, center
-background-image: url(https://upload.wikimedia.org/wikipedia/commons/3/39/Naruto_Shiki_Fujin.svg)
-background-size: contain
-
-# Naruto
-
----
-background-image: url(https://upload.wikimedia.org/wikipedia/commons/b/be/Sharingan_triple.svg)
-background-size: 100px
-background-position: 90% 8%
-
-# Sharingan
-
-The R package name **xaringan** was derived&lt;sup&gt;1&lt;/sup&gt; from **Sharingan**, a dōjutsu in the Japanese anime _Naruto_ with two abilities:
-
-- the "Eye of Insight"
-
-- the "Eye of Hypnotism"
-
-I think a presentation is basically a way to communicate insights to the audience, and a great presentation may even "hypnotize" the audience.&lt;sup&gt;2,3&lt;/sup&gt;
-
-.footnote[
-[1] In Chinese, the pronounciation of _X_ is _Sh_ /ʃ/ (as in _shrimp_). Now you should have a better idea of how to pronounce my last name _Xie_.
-
-[2] By comparison, bad presentations only put the audience to sleep.
-
-[3] Personally I find that setting background images for slides is a killer feature of remark.js. It is an effective way to bring visual impact into your presentations.
-]
-
----
-
-# Naruto terminology
-
-The **xaringan** package borrowed a few terms from Naruto, such as
-
-- [Sharingan](http://naruto.wikia.com/wiki/Sharingan) (写輪眼; the package name)
-
-- The [moon reader](http://naruto.wikia.com/wiki/Moon_Reader) (月読; an attractive R Markdown output format)
-
-- [Chakra](http://naruto.wikia.com/wiki/Chakra) (查克拉; the path to the remark.js library, which is the power to drive the presentation)
-
-- [Nature transformation](http://naruto.wikia.com/wiki/Nature_Transformation) (性質変化; transform the chakra by setting different options)
-
-- The [infinite moon reader](http://naruto.wikia.com/wiki/Infinite_Tsukuyomi) (無限月読; start a local web server to continuously serve your slides)
-
-- The [summoning technique](http://naruto.wikia.com/wiki/Summoning_Technique) (download remark.js from the web)
-
-You can click the links to know more about them if you want. The jutsu "Moon Reader" may seem a little evil, but that does not mean your slides are evil.
-
----
-
-class: center
-
-# Hand seals (印)
-
-Press `h` or `?` to see the possible ninjutsu you can use in remark.js.
-
-![](https://upload.wikimedia.org/wikipedia/commons/7/7e/Mudra-Naruto-KageBunshin.svg)
-
----
-
-class: center, middle
-
-# Thanks!
-
-Slides created via the R package [**xaringan**](https://github.com/yihui/xaringan).
-
-The chakra comes from [remark.js](https://remarkjs.com), [**knitr**](http://yihui.org/knitr), and [R Markdown](https://rmarkdown.rstudio.com).
+[&lt;svg style="height:0.8em;top:.04em;position:relative;" viewBox="0 0 496 512"&gt;&lt;path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/&gt;&lt;/svg&gt; @i-baumann](http://github.com/i-baumann)  
+[&lt;svg style="height:0.8em;top:.04em;position:relative;" viewBox="0 0 512 512"&gt;&lt;path d="M476 3.2L12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"/&gt;&lt;/svg&gt; dbaumann@sdsu.edu](mailto:dbaumann@sdsu.edu)
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
 "highlightStyle": "github",
 "highlightLines": true,
-"countIncrementalSlides": false
+"countIncrementalSlides": false,
+"highlightSpans": true,
+"ratio": "16:9"
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
