@@ -938,6 +938,10 @@ Questions:
 
 --
 
+<center><img src="https://media.giphy.com/media/3oeSAK2k0zDaQCbqJG/giphy.gif" height = 200 /></center>
+
+--
+
 - Why are most of the species coefficients `NA`?
 
 ---
