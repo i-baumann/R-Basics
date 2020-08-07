@@ -326,7 +326,7 @@ All packages are vetted: R is open-source, but it's not Wikipedia
 
 --
 
-Still not sure? Check the help files!
+Still not sure? Check the help files! Run a package/function name with `?` before it:
 
 ```{r eval=FALSE, tidy=FALSE}
 ?tidyverse
@@ -334,7 +334,7 @@ Still not sure? Check the help files!
 
 --
 
-Let's try another package:
+Let's try a function:
 
 ```{r eval=FALSE, tidy=FALSE}
 ?print
