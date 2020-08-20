@@ -1676,7 +1676,7 @@ _Think ahead while scripting_: don't take shortcuts, take the time to do it righ
 
 class: center, middle
 
-<img class="circle" src="https://github.com/i-baumann.png" width=150 />
+<img class="circle" src="https://github.com/my-cabbages.png" width=150 />
 
-[`r fa(name = "github")` @i-baumann](http://github.com/i-baumann)  
+[`r fa(name = "github")` @my-cabbages](http://github.com/my-cabbages)  
 [`r fa(name = "paper-plane")` dbaumann@sdsu.edu](mailto:dbaumann@sdsu.edu)
